@@ -44,6 +44,16 @@ public class DepartmentController {
 		return new ResponseEntity<>(departmentObj, HttpStatus.OK);
 	}
 
+	@GetMapping("/{id}")
+	private ResponseEntity<Department> deleteDepartmentById(@PathVariable("id") long departmentId) {
+		 departmentService.deleteDepartmentById(departmentId);
+		 LOGGER.info("deleted department by id is : " + departmentId);
+		 return new ResponseEntity<>( HttpStatus.OK);
+	}
+
+	
+	
+	
 	
 	//this method will return all list of departments 
 	@GetMapping("/")

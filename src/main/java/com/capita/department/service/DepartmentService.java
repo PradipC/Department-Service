@@ -45,4 +45,11 @@ public class DepartmentService {
 		return departments;
 	}
 
+
+	public void deleteDepartmentById(long departmentId) {
+		
+		departmentRepo.deleteById(departmentId);
+		
+	}
+
 }
