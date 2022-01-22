@@ -24,6 +24,8 @@ public class DepartmentService {
 	
 	public Department saveDepartment(Department department) {
 		
+		LOGGER.info("DepartmentService.saveDepartment()");
+		
 		Department departmentObj = departmentRepo.save(department);
 		
 		return departmentObj;
@@ -31,6 +33,9 @@ public class DepartmentService {
 
 
 	public Department getDepartmentById(long departmentId) {
+		
+		LOGGER.info("DepartmentService.getDepartmentById()");
+		
 		Department departmentObj =departmentRepo.findByDepartmentId(departmentId);
 		return departmentObj;
 	}
