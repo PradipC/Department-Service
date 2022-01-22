@@ -26,20 +26,26 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 
+	//this method for saving department
 	@PostMapping("/")
 	private ResponseEntity<Department> saveDepartment(@RequestBody Department department) {
 		Department departmentObj = departmentService.saveDepartment(department);
-		LOGGER.info("departmentObj is : " + departmentObj);
+		LOGGER.info("saved departmentObj is : " + departmentObj);
 		return new ResponseEntity<>(departmentObj, HttpStatus.OK);
 	}
 
+	
+	//this method for getting department
 	@GetMapping("/{id}")
 	private ResponseEntity<Department> getDepartmentById(@PathVariable("id") long departmentId) {
+		//calling service
 		Department departmentObj = departmentService.getDepartmentById(departmentId);
-		LOGGER.info("getDepartmentById- departmentObj is : " + departmentObj);
+		LOGGER.info("get departmentObj by id is : " + departmentObj);
 		return new ResponseEntity<>(departmentObj, HttpStatus.OK);
 	}
 
+	
+	//this method will return all list of departments 
 	@GetMapping("/")
 	private ResponseEntity<List<Department>> getDepartments() {
 		List<Department> departments = departmentService.getDepartments();
